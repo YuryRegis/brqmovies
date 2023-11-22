@@ -1,1 +1,1 @@
-export {};
+export {useAppTheme} from './useAppTheme';
