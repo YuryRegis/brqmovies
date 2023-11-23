@@ -6,6 +6,7 @@ import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 
 import {theme} from '@theme';
 import {Router} from '@routes';
+import {AuthProvider} from './src/contexts';
 
 const queryClient = new QueryClient();
 
@@ -14,7 +15,9 @@ export const App = () => {
     <QueryClientProvider client={queryClient}>
       <SafeAreaProvider>
         <ThemeProvider theme={theme}>
+          <AuthProvider>
            <Router />
+          </AuthProvider>
         </ThemeProvider>
       </SafeAreaProvider>
     </QueryClientProvider>
