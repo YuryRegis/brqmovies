@@ -12,11 +12,12 @@ import {
   FormPasswordInput,
 } from '@components';
 import {LoginSchema, loginSchema} from './loginSchema';
+import {useAuth} from '@contexts';
 import {BRQLogo} from '@brand';
 
 
 export function LoginScreen() {
-  
+  const {signIn, isLoading} = useAuth();
   const {control, formState, handleSubmit} = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -27,7 +28,7 @@ export function LoginScreen() {
   });
 
   function submitForm({user, password}: LoginSchema) {
-   // TODO: Submit form
+    signIn(user, password);
   };
 
   function navigateToForgotPasswordScreen() {
@@ -67,7 +68,7 @@ export function LoginScreen() {
         <Button
           title="Entrar"
           marginTop="s40"
-          loading={false}
+          loading={isLoading}
           disabled={!formState.isValid}
           onPress={handleSubmit(submitForm)}
         />

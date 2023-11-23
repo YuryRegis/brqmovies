@@ -1,9 +1,7 @@
 import React, {PropsWithChildren, createContext, useEffect, useState} from 'react';
 import {Alert} from 'react-native';
 
-import {AsyncStorage} from '@services';
-import {authService} from '@services';
-
+import {AsyncStorage, authService} from '@services';
 
 export interface AuthData  {
   token: string;
@@ -43,17 +41,27 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({children}) => {
 
   async function signIn(user: string, password: string) {
     try {
+      setisLoading(true);
       const authData = await authService.signIn(user, password);
       setAuthData(authData);
       AsyncStorage.set('@AuthData', JSON.stringify(authData));
     } catch (error) {
       Alert.alert('Erro ao entrar', error?.message);
+    } finally {
+      setisLoading(false);
     }
   }
 
   async function signOut() {
-    setAuthData(undefined);
-    AsyncStorage.delete('@AuthData');
+    try {
+      setisLoading(true);
+      setAuthData(undefined);
+      AsyncStorage.delete('@AuthData');
+    } catch (error) {
+      Alert.alert('Logout error', error?.message);
+    } finally {
+      setisLoading(false);
+    };
   }
 
   return (
