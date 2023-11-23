@@ -74,10 +74,10 @@ export function LoginScreen() {
 
         <Text
           marginTop="s24"
-          onPress={()=>{}}
           textAlign="center"
           color="primaryContrast"
-          preset="paragraphMedium">
+          preset="paragraphMedium"
+          onPress={navigateToForgotPasswordScreen}>
             Esqueci a Senha
         </Text>
       </Box>
