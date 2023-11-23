@@ -1,18 +1,12 @@
 import React, {useCallback, useRef} from 'react';
 import { FlatList, ListRenderItem } from 'react-native';
 
-import {
-  Box,
-  Text,
-  Button,
-  Screen,
-  MovieCard,
-} from '@components';
 import {IMovie} from '@domain';
 import {AppScreenProps} from '@routes';
 import {Header} from './Components/Header';
 import {TabBar} from './Components/TabBar';
 import {MovieList} from './Components/MovieList';
+import {Box, Screen, MovieCard} from '@components';
 import {FavoriteList} from './Components/FavoriteList';
 import {ScreenName, ScreenType, screenOptions} from './Components/types';
 
