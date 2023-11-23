@@ -1,16 +1,21 @@
 import {
     TouchableOpacityProps as RNTouchableOpacityProps,
+    Animated as RNAnimated,
     TouchableOpacity,
+    ViewProps,
   } from 'react-native';
   
 import {
       border,
       layout,
+      shadow,
       spacing,
       createBox,
       BorderProps,
       LayoutProps,
+      ShadowProps,
       SpacingProps,
+      PositionProps,
       backgroundColor,
       spacingShorthand,
       BackgroundColorProps,
@@ -29,12 +34,26 @@ export type TouchableOpacityBoxProps = BackgroundColorProps<Theme> &
     SpacingProps<Theme> &
     SpacingShorthandProps<Theme> &
     RNTouchableOpacityProps;
-  
+
+export type AnimatedBoxProps = BackgroundColorProps<Theme> &
+  SpacingProps<Theme> &
+  LayoutProps<Theme> &
+  BorderProps<Theme> &
+  ShadowProps<Theme> &
+  PositionProps<Theme> &
+  SpacingShorthandProps<Theme> &
+  RNAnimated.AnimatedProps<ViewProps>;
+
 export const TouchableOpacityBox = createRestyleComponent<
     TouchableOpacityBoxProps,
     Theme
   >(
     [backgroundColor, spacing, spacingShorthand, layout, border],
     TouchableOpacity,
+  );
+  
+  export const AnimatedBox = createRestyleComponent<AnimatedBoxProps, Theme>(
+    [backgroundColor, spacing, spacingShorthand, layout, border, shadow],
+    RNAnimated.View,
   );
   
