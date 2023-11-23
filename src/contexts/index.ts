@@ -1,4 +1,4 @@
 export {useAuth} from './useCases/useAuth';
-export {AuthProvider, AuthContext} from './Authentication';
+export {AuthProvider} from './Authentication';
 
 export type {AuthData} from './Authentication';
