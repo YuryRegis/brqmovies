@@ -1,10 +1,13 @@
 export {Text} from './Text';
+export {Icon} from './Icon';
 export {Screen} from './Screen';
 export {TextInput} from './TextInput';
 export {Box, TouchableOpacityBox} from './Box';
 export {FormTextInput} from './Form/FormTextInput';
 
+
 export type {TextProps} from './Text/TextProps';
 export type {TextPresets} from './Text/TextPresets';
+export type {IconName, IconBase} from './Icon/IconProps';
 export type {BoxProps, TouchableOpacityBoxProps} from './Box';
 export type {TextInputProps} from './TextInput/TextInputProps';
