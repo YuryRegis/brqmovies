@@ -6,15 +6,15 @@ import {TouchableOpacityBox} from '@components';
 
 
 export function MovieCard({movie, navigation}: IMovieCard) {
-  function navigateToMovieDetailsScreen() {
-    //TODO: Navigate to MovieDetailsScreen
+  function navigateToDetailsScreen() {
+    navigation.navigate('DetailsScreen', movie);
   };
 
   return (
     <TouchableOpacityBox
       borderRadius="s8"
       overflow='hidden'
-      onPress={navigateToMovieDetailsScreen}>
+      onPress={navigateToDetailsScreen}>
       <Image
         style={$image}
         resizeMode="center"
