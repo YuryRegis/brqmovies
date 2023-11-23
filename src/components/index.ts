@@ -5,6 +5,7 @@ export {TextInput} from './TextInput';
 export {PasswordInput} from './PasswordInput';
 export {Box, TouchableOpacityBox} from './Box';
 export {FormTextInput} from './Form/FormTextInput';
+export {FormPasswordInput} from './Form/FormPasswordInput';
 
 
 export type {TextProps} from './Text/TextProps';
