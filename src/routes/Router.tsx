@@ -1,16 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
 import {AppStack} from './AppStack';
 import {AuthStack} from './AuthStack';
+import {AuthContext} from '../contexts';
 
 
 export function Router() {
-  const isAuthenticated = false;
+  const {authData} = useContext(AuthContext);
 
   return (
     <NavigationContainer>
-      {isAuthenticated ? <AppStack /> : <AuthStack />}
+      {Boolean(authData) ? <AppStack /> : <AuthStack />}
     </NavigationContainer>
   );
 };
