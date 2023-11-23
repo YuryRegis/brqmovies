@@ -1,47 +1,58 @@
-import React from 'react';
-import { FlatList } from 'react-native';
+import React, {useCallback, useRef} from 'react';
+import { FlatList, ListRenderItem } from 'react-native';
 
 import {
   Box,
   Text,
   Button,
   Screen,
+  MovieCard,
 } from '@components';
-import {BRQLogo} from '@brand';
-import { useAuth } from '@contexts';
-import { usePopularMovieList } from '@domain';
+import {IMovie} from '@domain';
+import {AppScreenProps} from '@routes';
+import {Header} from './Components/Header';
+import {TabBar} from './Components/TabBar';
+import {MovieList} from './Components/MovieList';
+import {FavoriteList} from './Components/FavoriteList';
+import {ScreenName, ScreenType, screenOptions} from './Components/types';
 
 
-export function HomeScreen() {
-  const {signOut} = useAuth();
-  const {
-    list: moviesList,
-    fetchNextPage,
-    isError,
-    isLoading,
-    refresh,
-  } = usePopularMovieList();
+export function HomeScreen({navigation}: AppScreenProps<'HomeScreen'>) {
+  
+  const screenOptionsNames = Object.keys(screenOptions) as ScreenName[];  
+  const [screen, setScreen] = React.useState<ScreenType>('movies');
+  const listRef = useRef<FlatList>(null);
+
+
+  const TabBarButtonHandler = useCallback((value: ScreenName) => {
+    const newScreen = screenOptions[value];
+    setScreen(newScreen);
+  }, []);
+
+  const renderItem: ListRenderItem<IMovie> = useCallback(
+    ({item}) => {
+      return <MovieCard movie={item} navigation={navigation} />;
+    },
+    [navigation],
+  );
   
   return (
     <Screen flex={1}>
-      <Box flex={1}>
-        <FlatList
-          data={moviesList}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({item}) => (
-            <Box>
-              <Text>{item.title}</Text>
-            </Box>
-          )}
-          onEndReached={fetchNextPage}
-          onRefresh={refresh}
-          refreshing={isLoading}
-        />
+      <Box>
+        <Header />
 
-        <Button 
-          title="Logout"
-          onPress={signOut}
-        />
+        <TabBar
+          options={screenOptionsNames}
+          onChange={TabBarButtonHandler} />
+
+        {screen==='movies' && (
+          <MovieList flatListRef={listRef} renderItem={renderItem}
+        />)}
+
+        {screen==='favorites' && (
+          <FavoriteList flatListRef={listRef} renderItem={renderItem}
+        />)}
+      
       </Box>
     </Screen>
   );

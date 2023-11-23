@@ -3,6 +3,7 @@ export {Icon} from './Icon';
 export {Button} from './Button';
 export {Screen} from './Screen';
 export {TextInput} from './TextInput';
+export {MovieCard} from './MovieCard';
 export {PasswordInput} from './PasswordInput';
 export {Box, TouchableOpacityBox} from './Box';
 export {FormTextInput} from './Form/FormTextInput';
