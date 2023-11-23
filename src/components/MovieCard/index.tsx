@@ -13,6 +13,7 @@ export function MovieCard({movie, navigation}: IMovieCard) {
   return (
     <TouchableOpacityBox
       borderRadius="s8"
+      overflow='hidden'
       onPress={navigateToMovieDetailsScreen}>
       <Image
         style={$image}
