@@ -1,1 +1,1 @@
-export {};
+export {BRQLogo} from './BRQ/BRQLogo';
