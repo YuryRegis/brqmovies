@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
-import {Animated, ImageBackground, ScrollView, StatusBar, ViewStyle} from 'react-native';
+import {Animated, Dimensions, ImageBackground, ScrollView, StatusBar, ViewStyle} from 'react-native';
 
 import {Box, Text} from '@components';
 import {useAppSafeArea} from '@hooks';
 import {AppScreenProps} from '@routes';
 import {CardGroup, Header} from './components';
+
+
+const {width: screenWidth} = Dimensions.get('window');
 
 export function DetailsScreen({
   route,

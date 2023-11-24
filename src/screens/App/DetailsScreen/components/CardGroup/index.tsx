@@ -1,17 +1,19 @@
 import React from 'react';
+import { Dimensions } from 'react-native';
 
 import {Card} from '../Card';
 import {IMovie} from '@domain';
 import {Box} from '@components';
 
 
+const {width: screenWidth} = Dimensions.get('window');
 export interface ICardGroup {
   movie: IMovie;
 }
 
 export function CardGroup({movie}: ICardGroup) {
   return (
-    <Box marginTop="s32" gap="s16">
+    <Box marginTop="s32" style={$wrapper}>
 
       <Box flexDirection="row" justifyContent="space-between">
         <Card label="Prestígio" value={movie.popularity} icon="heart" />
@@ -25,4 +27,9 @@ export function CardGroup({movie}: ICardGroup) {
     
     </Box>
   );
+};
+
+const $wrapper = {
+  gap: 16,
+  marginHorizontal: screenWidth - 375,
 };
