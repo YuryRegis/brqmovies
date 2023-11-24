@@ -1,4 +1,4 @@
-# Nome do Projeto
+# BRQ Movie
 
 Este é um projeto React Native desenvolvido como parte do teste técnico para a vaga de desenvolvedor mobile na BRQ. A aplicação utiliza a API "The Movie DB" para exibir informações sobre filmes.
 
