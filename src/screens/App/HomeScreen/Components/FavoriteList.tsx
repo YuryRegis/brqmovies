@@ -1,11 +1,12 @@
 import React from 'react';
-import {FlatList, RefreshControl, Text, ViewStyle} from 'react-native';
+import {Dimensions, FlatList, RefreshControl, Text, ViewStyle} from 'react-native';
 
 import {EmptyContentList} from './EmptyContentList';
 import {useFavoriteMovieList} from '@domain';
 import {IMovieList} from './types';
 import {Box} from '@components';
 
+const {width: screenWidth} = Dimensions.get('window');
 
 export function FavoriteList({
   flatListRef,
@@ -42,6 +43,6 @@ export function FavoriteList({
 };
 
 const $columnWrapper: ViewStyle = {
-    paddingHorizontal: 8,
+    paddingHorizontal: screenWidth - 384,
     justifyContent: 'space-between',
 };

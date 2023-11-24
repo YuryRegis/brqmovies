@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, RefreshControl, ViewStyle} from 'react-native';
+import {Dimensions, FlatList, RefreshControl, ViewStyle} from 'react-native';
 
 import {usePopularMovieList} from '@domain';
 
@@ -7,6 +7,8 @@ import {Box} from '@components';
 import {IMovieList} from './types';
 import {EmptyContentList} from './EmptyContentList';
 
+
+const {width: screenWidth} = Dimensions.get('window');
 
 export function MovieList({
   flatListRef,
@@ -42,6 +44,6 @@ export function MovieList({
 };
 
 const $columnWrapper: ViewStyle = {
-    paddingHorizontal: 8,
+    paddingHorizontal: screenWidth - 384,
     justifyContent: 'space-between',
 };
