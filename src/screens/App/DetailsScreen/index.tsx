@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Animated, ImageBackground, ScrollView, ViewStyle} from 'react-native';
+import {Animated, ImageBackground, ScrollView, StatusBar, ViewStyle} from 'react-native';
 
 import {Box, Text} from '@components';
 import {useAppSafeArea} from '@hooks';
@@ -16,6 +16,7 @@ export function DetailsScreen({
 
   return (
     <>
+      <StatusBar translucent backgroundColor="transparent" />
       <Header navigation={navigation} scrollY={scrollY} movie={movie} />
       
       <Box
