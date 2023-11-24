@@ -10,7 +10,7 @@ const {width: screenWidth} = Dimensions.get('window');
 
 export function FloatingMenuButton({option}: IFloatingMenu) {
   const {top} = useAppSafeArea();
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   function toggleMenu() {
     setVisible(prevState => !prevState);
@@ -35,15 +35,15 @@ export function FloatingMenuButton({option}: IFloatingMenu) {
       </Box>
       
       <Modal transparent visible={visible}>
-        <Box flex={1} onTouchStart={toggleMenu}>
+        <Box position='absolute'>
+          <Box height={top + 58} left={screenWidth - 70} onTouchStart={toggleMenu}/>  
           <Box
-            top={top + 58}
             borderRadius="s8"
-            position="absolute"
             paddingVertical="s10"
             backgroundColor="gray"
             left={screenWidth - 134}>
 
+            
             <TouchableOpacityBox
               paddingHorizontal="s24"
               onPress={option.action}
@@ -58,9 +58,9 @@ export function FloatingMenuButton({option}: IFloatingMenu) {
                 color="grayWhite">
                 {option.title}
               </Text>
-            </TouchableOpacityBox>                
+            </TouchableOpacityBox>
           </Box>
-        </Box>
+        </Box>                
       </Modal>
     </>
   );
