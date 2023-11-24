@@ -31,8 +31,10 @@ export function TextInput({
     <Box {...boxProps}>
       <Pressable onPress={focusInput}>
         <Box
+          testID='text-input-container'
           {...handleTextInputContainerStyle(errorMessage)}
           {...containerBoxProps}>
+
           {Boolean(LeftComponent) && (
             <Box
               marginHorizontal="s8"
