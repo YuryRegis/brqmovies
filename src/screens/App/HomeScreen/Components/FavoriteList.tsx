@@ -5,7 +5,6 @@ import {EmptyContentList} from './EmptyContentList';
 import {useFavoriteMovieList} from '@domain';
 import {IMovieList} from './types';
 import {Box} from '@components';
-import { is } from 'date-fns/locale';
 
 
 export function FavoriteList({
@@ -17,11 +16,9 @@ export function FavoriteList({
     list: moviesList,
     fetchNextPage,
     isLoading,
-    isError,
     refresh,
   } = useFavoriteMovieList();
 
-  const contentContainerFlex = moviesList.length === 0 ? 1 : undefined;
 
   return (
     <FlatList
@@ -34,10 +31,9 @@ export function FavoriteList({
       onEndReached={fetchNextPage}
       columnWrapperStyle={$columnWrapper}
       showsVerticalScrollIndicator={false}
-      ListEmptyComponent={EmptyContentList}
       keyExtractor={item => item.id.toString()}
-      contentContainerStyle={{flex: contentContainerFlex}}
       ItemSeparatorComponent={() => <Box height={16}/>}
+      ListEmptyComponent={EmptyContentList({message: 'Ops! Lista vazia!'})}
       refreshControl={
         <RefreshControl refreshing={isLoading} onRefresh={refresh} />
       }

@@ -17,11 +17,8 @@ export function MovieList({
     list: moviesList,
     fetchNextPage,
     isLoading,
-    isError,
     refresh,
   } = usePopularMovieList();
-
-  const contentContainerFlex = moviesList.length === 0 ? 1 : undefined;
 
   return (
     <FlatList
@@ -34,10 +31,9 @@ export function MovieList({
       onEndReached={fetchNextPage}
       columnWrapperStyle={$columnWrapper}
       showsVerticalScrollIndicator={false}
-      ListEmptyComponent={EmptyContentList}
       keyExtractor={item => item.id.toString()}
-      contentContainerStyle={{flex: contentContainerFlex}}
       ItemSeparatorComponent={() => <Box height={16}/>}
+      ListEmptyComponent={EmptyContentList({message: 'Ops! Lista vazia!'})}
       refreshControl={
         <RefreshControl refreshing={isLoading} onRefresh={refresh} />
       }

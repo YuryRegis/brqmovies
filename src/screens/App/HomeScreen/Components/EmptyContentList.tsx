@@ -11,11 +11,11 @@ interface IEmptyContentList {
 export function EmptyContentList({message}: IEmptyContentList) {
     return (
         <Box alignItems="center" justifyContent="center">
-            <Box>
+            <Box marginTop='s78'>
                 <BRQLogo/>
             </Box>
                 
-            <Text preset="headingMedium" color="grayWhite" marginTop="s16">
+            <Text preset="headingMedium" color="primary" marginTop="s16">
                 {message}
             </Text>
         </Box>
