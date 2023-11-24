@@ -1,79 +1,89 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Nome do Projeto
 
-# Getting Started
+Este é um projeto React Native desenvolvido como parte do teste técnico para a vaga de desenvolvedor mobile na BRQ. A aplicação utiliza a API "The Movie DB" para exibir informações sobre filmes.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Funcionalidades
 
-## Step 1: Start the Metro Server
+- **Login:** Permite aos usuários autenticarem-se na aplicação.
+- **Home:** Exibe uma lista de filmes utilizando a API do TMDB.
+- **Detalhamento:** Mostra informações detalhadas sobre um filme específico.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## API "The Movie DB"
 
-```bash
-# using npm
-npm start
+O projeto utiliza a API do "The Movie DB" para obter informações sobre filmes. Consulte a [documentação oficial](https://developer.themoviedb.org/docs) para mais detalhes sobre como utilizar a API.
 
-# OR using Yarn
-yarn start
+## Screeshots
+
+| Login | Home | Empty | Menu |
+| --- | --- | --- | --- |
+| ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-24 at 14 50 42](https://github.com/YuryRegis/brqmovies/assets/29512626/98560f45-fb61-46aa-a213-c8505c74fe26) | ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-24 at 14 51 04](https://github.com/YuryRegis/brqmovies/assets/29512626/3eb393fe-852d-46b4-9133-b1de08c4834f) | ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-24 at 14 51 21](https://github.com/YuryRegis/brqmovies/assets/29512626/45db784d-507f-4408-b467-9f2f04915549) | ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-24 at 14 51 40](https://github.com/YuryRegis/brqmovies/assets/29512626/e7700ddb-ecad-4aa3-bd6d-6dcdc567ee89) |
+
+## Figma do projeto
+
+[https://www.figma.com/file/5JlOZPiTKhgWeVdLb1uNPJ/BRQ-Movies](https://www.figma.com/file/5JlOZPiTKhgWeVdLb1uNPJ/BRQ-Movies?type=design&node-id=0-1&mode=design&t=eZGxzoZazcemWXp1-0)
+
+## Configuração
+
+Para configurar o projeto, siga os passos abaixo:
+
+1. Instalação de Dependências:
+```
+$ yarn
 ```
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+2. Executar Testes:
+```
+$ yarn test
 ```
 
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+3. Gerar Cobertura de Testes:
+```
+$ yarn coverage
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+#### For Android
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+```
+$ yarn android
+```
 
-## Step 3: Modifying your App
+#### For iOS
+```
+$ yarn ios
+```
 
-Now that you have successfully run the app, let's modify it.
+4. Arquivo .env:
+- Crie um arquivo `.env` com base no `.env.example`.
+- Registre uma conta no TMDB para obter as chaves necessárias:
+  - `API_KEY`
+  - `API_TOKEN`
+  - `ACCOUNT_ID`
+- Configure a `BASE_URL` com o valor `"https://api.themoviedb.org/3/"`.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## Algumas justificativas
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+### Jest
+- **Justificativa:** O [Jest](https://jestjs.io/pt-BR/docs/getting-started) é uma estrutura de teste amplamente utilizada no ecossistema do React Native. Oferece uma sintaxe simples para escrever testes e integra-se bem com o ambiente de desenvolvimento, proporcionando uma cobertura completa para testes unitários, de integração e de snapshots.
 
-## Congratulations! :tada:
+### react-native-mmkv
+- **Justificativa:** O [react-native-mmkv](https://www.npmjs.com/package/react-native-mmkv-storage?activeTab=readme) é uma biblioteca que oferece acesso rápido e eficiente para armazenamento de dados no dispositivo utilizando o MMKV (uma alternativa ao AsyncStorage padrão do React Native). Sua escolha pode se dar pela performance superior em comparação com outras opções de armazenamento local, especialmente para dados mais pesados.
 
-You've successfully run and modified your React Native App. :partying_face:
+### React-hook-form
+- **Justificativa:** Esta biblioteca é escolhida por simplificar a lógica de formulários no React Native. Oferece um conjunto de hooks que facilitam a validação, manipulação e envio de dados de formulários, reduzindo a complexidade do código e melhorando a manutenção.
 
-### Now what?
+### tanstack/react-query
+- **Justificativa:** O [react-query](https://tanstack.com/query/v4/docs/react/overview) é uma biblioteca moderna para gerenciamento de estado e caching de dados, útil para aplicativos que dependem fortemente de dados externos, como a API "The Movie DB". Sua escolha pode estar relacionada à facilidade de fazer requisições, manipular e armazenar em cache os dados de forma eficiente.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+### Shopify/restyle
+- **Justificativa:** O [restyle](https://shopify.github.io/restyle/) é uma biblioteca que oferece um sistema de design-first para estilização em React Native. Permite criar e reutilizar componentes estilizados de maneira consistente, promovendo uma padronização visual e facilitando a manutenção da interface do aplicativo.
 
-# Troubleshooting
+### Zod
+- **Justificativa:**  O [zod](https://zod.dev/) é uma biblioteca de validação de esquema altamente eficiente e tipada, sendo uma escolha para garantir a integridade dos dados recebidos da API ou fornecidos pelos usuários. Com seu sistema de tipagem robusto, auxilia na prevenção de erros comuns de tipagem e validação de dados.
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+### Axios
+- **Justificativa:** O [axios](https://axios-http.com/docs/intro) é uma escolha comum para fazer requisições HTTP no React Native. Oferece uma interface simples e flexível para realizar chamadas de API, com suporte a interceptores, facilitando o tratamento de erros, manipulação de requisições e respostas, além de integração bem estabelecida com o ecossistema do React Native.
 
-# Learn More
+## Contribuição
 
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Contribuições são bem-vindas! Se encontrar algum problema ou desejar implementar melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
