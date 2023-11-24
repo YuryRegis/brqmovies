@@ -15,9 +15,10 @@ O projeto utiliza a API do "The Movie DB" para obter informações sobre filmes.
 
 ## Screeshots
 
-| Login | Home | Empty | Menu |
+| Login | Home | Empty | Details |
 | --- | --- | --- | --- |
-| ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-24 at 14 50 42](https://github.com/YuryRegis/brqmovies/assets/29512626/98560f45-fb61-46aa-a213-c8505c74fe26) | ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-24 at 14 51 04](https://github.com/YuryRegis/brqmovies/assets/29512626/3eb393fe-852d-46b4-9133-b1de08c4834f) | ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-24 at 14 51 21](https://github.com/YuryRegis/brqmovies/assets/29512626/45db784d-507f-4408-b467-9f2f04915549) | ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-24 at 14 51 40](https://github.com/YuryRegis/brqmovies/assets/29512626/e7700ddb-ecad-4aa3-bd6d-6dcdc567ee89) |
+| ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-24 at 14 50 42](https://github.com/YuryRegis/brqmovies/assets/29512626/98560f45-fb61-46aa-a213-c8505c74fe26) | ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-24 at 14 51 04](https://github.com/YuryRegis/brqmovies/assets/29512626/3eb393fe-852d-46b4-9133-b1de08c4834f) | ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-24 at 14 51 21](https://github.com/YuryRegis/brqmovies/assets/29512626/45db784d-507f-4408-b467-9f2f04915549) | ![Simulator Screenshot - iPhone SE (3rd generation) - 2023-11-24 at 15 31 42](https://github.com/YuryRegis/brqmovies/assets/29512626/c8f91027-9218-43bc-aef9-bdc160eb3cb0) |
+
 
 ## Figma do projeto
 
