@@ -1,9 +1,11 @@
 import React from 'react';
-import {FlatList, RefreshControl, ViewStyle} from 'react-native';
+import {FlatList, RefreshControl, Text, ViewStyle} from 'react-native';
 
+import {EmptyContentList} from './EmptyContentList';
 import {useFavoriteMovieList} from '@domain';
 import {IMovieList} from './types';
 import {Box} from '@components';
+import { is } from 'date-fns/locale';
 
 
 export function FavoriteList({
@@ -32,6 +34,7 @@ export function FavoriteList({
       onEndReached={fetchNextPage}
       columnWrapperStyle={$columnWrapper}
       showsVerticalScrollIndicator={false}
+      ListEmptyComponent={EmptyContentList}
       keyExtractor={item => item.id.toString()}
       contentContainerStyle={{flex: contentContainerFlex}}
       ItemSeparatorComponent={() => <Box height={16}/>}

@@ -2,8 +2,10 @@ import React from 'react';
 import {FlatList, RefreshControl, ViewStyle} from 'react-native';
 
 import {usePopularMovieList} from '@domain';
-import {IMovieList} from './types';
+
 import {Box} from '@components';
+import {IMovieList} from './types';
+import {EmptyContentList} from './EmptyContentList';
 
 
 export function MovieList({
@@ -32,6 +34,7 @@ export function MovieList({
       onEndReached={fetchNextPage}
       columnWrapperStyle={$columnWrapper}
       showsVerticalScrollIndicator={false}
+      ListEmptyComponent={EmptyContentList}
       keyExtractor={item => item.id.toString()}
       contentContainerStyle={{flex: contentContainerFlex}}
       ItemSeparatorComponent={() => <Box height={16}/>}
