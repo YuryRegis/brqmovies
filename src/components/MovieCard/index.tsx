@@ -18,6 +18,8 @@ export function MovieCard({movie, navigation}: IMovieCard) {
       <Image
         style={$image}
         resizeMode="center"
+        accessibilityHint='Movie Poster'
+        accessibilityLabel='Movie Poster'
         source={{uri: `https://image.tmdb.org/t/p/w780/${movie.posterPath}`}}
       />
     </TouchableOpacityBox>
