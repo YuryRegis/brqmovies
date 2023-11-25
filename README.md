@@ -24,6 +24,10 @@ O projeto utiliza a API do "The Movie DB" para obter informações sobre filmes.
 
 [https://www.figma.com/file/5JlOZPiTKhgWeVdLb1uNPJ/BRQ-Movies](https://www.figma.com/file/5JlOZPiTKhgWeVdLb1uNPJ/BRQ-Movies?type=design&node-id=0-1&mode=design&t=eZGxzoZazcemWXp1-0)
 
+## Download
+
+[Android (APK)](https://github.com/YuryRegis/brqmovies/releases/download/Android/app-brqmovie.apk)
+
 ## Configuração
 
 Para configurar o projeto, siga os passos abaixo:
